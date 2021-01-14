@@ -5,6 +5,18 @@ import PostComponent from './components/postComponent/postComponent';
 
 let pageCount = 0;
 
+var intObserver = new IntersectionObserver(
+  entries => {
+    entries.forEach(entry => {
+      console.log(entry);
+      console.log(entry.isIntersecting); // returns true if the target intersects the root element
+    });
+  },
+  {
+    // default options
+  }
+);
+
 const PostPage = () => {
   const [post, setPost] = useState([]);
   const [showPastFromTo, setShowPastFromTo] = useState(20);
